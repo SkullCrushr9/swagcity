@@ -3,36 +3,637 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Rules</title>
+    <title>GAMEPLAY RULES</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 0;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            border-left: 5px solid #ff6b6b;
+            padding-left: 20px;
+            background: #f8f9fa;
+            border-radius: 0 10px 10px 0;
+            padding: 20px;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 1.8em;
+            border-bottom: 2px solid #ff6b6b;
+            padding-bottom: 10px;
+        }
+        
+        .rule {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .rule-number {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 15px;
+            vertical-align: top;
+        }
+        
+        .rule-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .rule-content {
+            margin-left: 45px;
+        }
+        
+        .exemption {
+            background: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .exemption::before {
+            content: "⚠️ Exemption: ";
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .highlight::before {
+            content: "⚠️ ";
+            font-weight: bold;
+        }
+        
+        .kos-rules {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .kos-rules h3 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+        
+        .traitorous-acts {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .traitorous-acts h3 {
+            color: #d32f2f;
+            margin-top: 0;
+        }
+        
+        .high-sus {
+            background: #fff8e1;
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .high-sus h3 {
+            color: #f57c00;
+            margin-top: 0;
+        }
+        
+        .gba {
+            background: #f3e5f5;
+            border: 2px solid #9c27b0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .gba h3 {
+            color: #7b1fa2;
+            margin-top: 0;
+        }
+        
+        .community-rules {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .community-rules h3 {
+            color: #388e3c;
+            margin-top: 0;
+        }
+        
+        .map-specific {
+            background: #fce4ec;
+            border: 2px solid #e91e63;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .map-specific h3 {
+            color: #c2185b;
+            margin-top: 0;
+        }
+        
+        .detective-rules {
+            background: #e1f5fe;
+            border: 2px solid #00bcd4;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .detective-rules h3 {
+            color: #0097a7;
+            margin-top: 0;
+        }
+        
+        .traitor-rules {
+            background: #f1f8e9;
+            border: 2px solid #8bc34a;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .traitor-rules h3 {
+            color: #689f38;
+            margin-top: 0;
+        }
+        
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .note {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .note::before {
+            content: "📝 NOTE: ";
+            color: #f57c00;
+        }
+    </style>
 </head>
 <body>
-    <h1><strong><u>Community Rules</u></strong></h1>
-    
-    <h2>⚠️ <strong>DO NOT BRING UP POLITICAL, RELIGIOUS, OR CONTROVERSIAL TOPICS IN ANY FORM OR WAY</strong> ⚠️</h2>
-    
-    <ol>
-        <li>Do not disrespect other players</li>
-        <li>Trash talk is allowed, however if they ask you to stop, please stop or it will be considered harassment.</li>
-        <li>Hatespeech/derogatory slurs or phrases are not allowed</li>
-        <li>Do not excessively micspam or chatspam</li>
-        <li><strong>English only server, please use it predominantly.</strong></li>
-        <li>Do not troll/group troll</li>
-        <li>Do not spam admin chat</li>
-        <li>Do not try to loophole or bend any rules</li>
-        <li>Do not use any explicit sprays (Porn/Gore/Beastiality)</li>
-        <li>Do not have abusive names</li>
-        <li>Do not attempt <strong>Ban Evasion</strong></li>
-        <li>Do not avoid punishment</li>
-        <li>Punishments can stack and lead to longer bans</li>
-        <li>Toxic Gameplay is not allowed</li>
-        <li>Do not advertise other servers</li>
-        <li><strong>Out Of Game Trading (OOGT)</strong> Selling points or items for real money, objects, or non-server content is punishable, and will result in a permanent ban.</li>
-        <li><strong>Alting/Account Sharing:</strong> You will be held accountable for any/every rule that is broken on your account/computer even if you're not the one that broke the rule.</li>
-        <li>Traitor Baiting is not allowed</li>
-        <li>Do not impersonate staff/backseat staff</li>
-    </ol>
-    
-    <hr>
-    <p><em>Please follow these rules to maintain a positive community environment.</em></p>
+    <div class="container">
+        <div class="header">
+            <h1>GAMEPLAY RULES</h1>
+        </div>
+        
+        <div class="content">
+            <!-- Main Gameplay Rules -->
+            <div class="section">
+                <h2>Main Gameplay Rules</h2>
+                
+                <div class="rule">
+                    <span class="rule-number">1</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Do not RDM (Random Deathmatch)</div>
+                        <ul>
+                            <li>Innocent/detective killing another innocent/detective is considered RDM</li>
+                            <li>Killing a traitor/innocent without just cause(T acts) will be considered RDM</li>
+                            <li>Prop killing will be considered RDM</li>
+                            <li>Random DMG w/o just cause</li>
+                            <li>Not allowed to KOS off "claimed areas"</li>
+                            <li>If you see a battle, check if one of the players are KOSd, wait until the victor IDs body. (If you kill one or both players, this will be considered RDM)</li>
+                            <li>Killing someone/damaging despite watching them have a valid reason to KOS/kill a player</li>
+                        </ul>
+                        <div class="exemption">Player committed an T act worthy of being KOS</div>
+                        <div class="exemption">Killing AFK in OT is exempt</div>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">2</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Ghosting is not allowed</div>
+                        <ul>
+                            <li>Using third party programs to communicate to live players round information while dead</li>
+                        </ul>
+                        <div class="exemption">Telling staff the last inno/T/D is AFK</div>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">3</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Must have a readable/understandable nickname</div>
+                        <ul>
+                            <li>Confusing Nicknames: Somebody, Nobody, You</li>
+                            <li>English only names</li>
+                            <li>Names in unreadable non-English characters are not allowed</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">4</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Do not false report</div>
+                        <ul>
+                            <li>While joke reports are allowed, do not use it in excess</li>
+                            <li>Making a report you know will be denied, and or spamming reports to utilize as a trolling tool</li>
+                            <li>Weaponizing reports to punish someone</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">5</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Prop minge is not allowed</div>
+                        <ul>
+                            <li>Using props to go into inaccessible spots</li>
+                            <li>Using props to kill others</li>
+                            <li>Using props to minge</li>
+                        </ul>
+                        <div class="exemption">TRAITORS/KILLING KOS'D TRAITORS ARE EXEMPT FROM THIS RULE EXCEPT FOR SURF/FLYING</div>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">6</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Delaying is not allowed</div>
+                        <ul>
+                            <li>Staying(camping) in a room or area that causes the round to be delayed. Up to staff discretion.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">7</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Do not False KOS</div>
+                        <ul>
+                            <li>You must have a reason to KOS someone, saying someone is a T w/o evidence can be considered false.</li>
+                            <li>You cannot KOS off of location, weapon, accessories/pets or playermodel</li>
+                            <li>Only KOS off Traitorous Acts</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">8</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Do not hack, exploit, or use bad macros</div>
+                        <ul>
+                            <li>Using anything to give you an unfair advantage</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">9</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Toxic Gameplay is not allowed</div>
+                        <ul>
+                            <li>Killing people within the rights of the rules, but using it in a way to create problems, toxicity or karma loss/slays.</li>
+                            <li>Killing a proven inno w/ a T weapon to take it</li>
+                            <li>Planting UNID'd bodies near players or AFKs to kill them</li>
+                            <li>Killing an inno who killed a T and ID'd the body</li>
+                            <li>Killing an inno whom you witnessed get attacked by a T, kill the T, then you killing the inno</li>
+                            <li>Jumping into crossfire and reporting one of the players for killing you.</li>
+                            <li>Running at people with a grenade out/magneto stick or anything that makes it seem you have a knife to bait a kill and report them</li>
+                        </ul>
+                        <div class="highlight">See Extended section towards end</div>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">10</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Metagaming/Teaming is not allowed</div>
+                        <ul>
+                            <li>KOSing your traitor buddies.</li>
+                            <li>Assisting Ts as an inno or detective.</li>
+                            <li>Letting innos into the T room on purpose as a traitor.</li>
+                            <li>Using slay reason or achievement gained to KOS a traitor</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">11</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Crossfire</div>
+                        <ul>
+                            <li>Crossfire is if another player gets infront of the player shooting and inevitably dies.</li>
+                            <li>Traitor bind can be considered crossfire if called off or in the midst of a firefight with more than 3 players in the battle.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">12</span>
+                    <div class="rule-content">
+                        <div class="rule-title">You must warn your teammates when using traps</div>
+                        <ul>
+                            <li>You must warn your T buddies in T chat, or T voice, must give a 5 sec in advance warning</li>
+                            <li>This includes using traitor weapons that have the possibility of killing your t buddies</li>
+                            <li>This includes any t traps that can kill your traitor buddies</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">13</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Passing UNID'd bodies is KOS</div>
+                        <ul>
+                            <li>The body must be able to be seen, if the body is on a floor below or in a hidden spot where they could have not seen it, does not make them KOS</li>
+                            <li>Looking at an UNID'd body and walkin away is KOS</li>
+                            <li>If an unid'd is behind a player, instruct them to ID the body, if they refute, you may kill them.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">14</span>
+                    <div class="rule-content">
+                        <div class="rule-title">High suspicion in overtime will result into a KOS</div>
+                        <ul>
+                            <li>Refer to Suspicious Acts</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">15</span>
+                    <div class="rule-content">
+                        <div class="rule-title">You are responsible for unjustified RDM chains/Mass RDM</div>
+                        <ul>
+                            <li>If you caused an RDM chain by being toxic or a troll, slays may be added to you if the other player properly defended themselves or acted according to the rules.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">16</span>
+                    <div class="rule-content">
+                        <div class="rule-title">You may use Common Sense to KOS/Kill a player</div>
+                        <ul>
+                            <li>If you are in a different part of the room and a player is inside the room and there is a TP mark on the ground(wasn't there previously), you may kill the player</li>
+                            <li>See a player in an area only accessible by Traitors</li>
+                        </ul>
+                        <div class="highlight">STAFF DECIDE WHETHER COMMON SENSE USED WAS PROPER</div>
+                    </div>
+                </div>
+                
+                <div class="rule">
+                    <span class="rule-number">17</span>
+                    <div class="rule-content">
+                        <div class="rule-title">Guilty By Association is allowed (GBA)</div>
+                        <ul>
+                            <li>Refer to GBA List</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- KOS Rules -->
+            <div class="kos-rules">
+                <h3>KOS Rules</h3>
+                <ul>
+                    <li>You cannot KOS/KILL anyone who warned for blocking/following even if the victim is inno</li>
+                    <li>Self implicated KOS can be followed</li>
+                    <li>Self defense is a valid reason to KOS/Kill someone</li>
+                    <li>If you have DNA off an Inno/Det body, KOS (ensure DNA icon is leading to correct person)</li>
+                    <li>You must KOS a player if they have done a T act</li>
+                    <li>"Player A is a T" is a valid KOS</li>
+                    <li>Using the TTT Radio T bind is a valid KOS</li>
+                    <li>"Kill Player A" is a valid KOS</li>
+                    <li>You must have evidence to back up a KOS, especially in voice chat, if not the KOS will be considered false</li>
+                    <li>If a player calls a KOS that leads to an inno death, it can be considered a T act if they did not provide a reason. If a reason is provided, you may not kill the player until overtime. They're considered "High Sus"</li>
+                    <li>KOZ, KO5 are not valid KOS's, however if used to trick players, the slays will be added onto you, and if determined to be group trolls, slays will be added to both the attacker and sayer.</li>
+                    <li>You must give 3 warnings (3 seconds in between) to people shooting in the air, following, grappling, or blocking you before you may KOS them</li>
+                </ul>
+            </div>
+            
+            <!-- Traitorous Acts -->
+            <div class="traitorous-acts">
+                <h3>Traitorous Acts</h3>
+                <ul>
+                    <li>Witnessing/damaging an Innocent/Detective with a prop or gun, throwing a discombob in a dangerous area/causes dmg or kills</li>
+                    <li>Attempted Propkill (swinging a prop around vigorously at someone, or slinging a prop full-force in someone's direction)</li>
+                    <li>Not identifying bodies (exempt: if there is a pile of bodies, and all but 1 are unid'd they pass over it, you can't kill them, if player is engaged in active firefight, you may not kill them if UNID'd is next to them)(ask to ID bodies, neglect to ID leads to KOS)</li>
+                    <li>Killing a player w/o cause (KOS players are exempt)</li>
+                    <li>Seeing two players enter a room, hear gunfire and death, and the other player leaves the room with an UNID</li>
+                    <li>Damaging Testers/Health Stations</li>
+                    <li>Tested as a Traitor</li>
+                    <li>Holding Traitor weapons out (unless proven by D)</li>
+                    <li>Planting/Arming C4, Tripwires, not damaged by turret/not triggering melon mine, using any T items</li>
+                    <li>Hiding UNID'd bodies</li>
+                    <li>Using an explosive prop near players/throwing an incen</li>
+                    <li>Wielding T props in specific maps</li>
+                    <li>Entering or leaving a T room (MC CITY DARK IS EXEMPT)</li>
+                    <li>Opening a T trap (must be in a secluded area where another T couldn't have opened said trap)</li>
+                    <li>Last words that KOS a player on a body</li>
+                    <li>Shooting at or near players/flinging props near or at people (traitor baiting)</li>
+                    <li>If you have DNA off an Inno/Det body, KOS (ensure DNA icon is leading to correct person)</li>
+                    <li>Blocking a player in an area of danger (IE C4, Incen, Holy Hand, Banana Bomb, etc)</li>
+                </ul>
+            </div>
+            
+            <!-- High Sus Acts -->
+            <div class="high-sus">
+                <h3>High Sus Acts</h3>
+                <p><strong>Are not KOSable until Overtime</strong></p>
+                <ul>
+                    <li>A player in a room that has a t room door and was not seen entering or in the room previously</li>
+                    <li>Hearing a T room door open nearby and seeing a player near the area (must be a room)</li>
+                    <li>Hearing a gun fight in a place nearby and a player running away from the carnage. *Can be a KOS if they run over the UNID'd body without IDing it</li>
+                    <li>Hearing a T weapon in use by a player nearby, but you do not witness them holding the weapon. If there is more than 1 you may high sus other players involved</li>
+                    <li>Passing a C4, Tripwire</li>
+                    <li>Around a KOS'd player</li>
+                    <li>Refusing to test (Must be commanded by a detective)</li>
+                    <li>Player A passes near Player B at the end of a long corridor with no exits who is running in the other direction. A few seconds later, Player A sees an unidentified body in the middle of the corridor where Player B came from. Since there are no other exits and no gunshots were heard until reaching the body (hinting someone was killed), it proves Player B have passed near this body without IDing it. Therefore, Player A may place high sus on Player B</li>
+                    <li>Self defense [not kosable] [Player B shoots you, you kill Player B, Player C watched it all, Player B ended up being innocent, Player C may place a High Suspicion on you]</li>
+                    <li>You see two players in a room, hear gunfire and a deathscream and walk in to find a recently ID'd as inno/detective, you may place high sus on the player.</li>
+                    <li>Live checks only lead to a high sus if player does not respond</li>
+                    <li>Defending a KOS'd traitor, or lying in the behalf of a KOS'd traitor</li>
+                </ul>
+            </div>
+            
+            <!-- GBA List -->
+            <div class="gba">
+                <h3>Guilty By Association/GBA List</h3>
+                <ul>
+                    <li>Player A shoots Player C, and Player B witnesses it does nothing about it - Player B is GBA</li>
+                    <li>Player A kills Player C and Player B does not ID the body - Player B is GBA</li>
+                    <li>Player A enters a Traitor room and Player B witnesses that, but does not call out Player A - Player B is GBA</li>
+                    <li>Player A plants a C4/T wep and runs. Player B sees that but does not call out Player A - Player B is GBA</li>
+                    <li>Player A and Player B are having a firefight, Player C walks in and watched the battle, the Player who wins the battle and either IDs or leaves the body UNID'd is GBA. However if the body is ID'd as a T, the surviving player is not GBA, and Player C is not GBA</li>
+                    <li>Player A kills Player B, and Player B is ID'd inno, or not ID'd and Player C watched the entire fight and did nothing - Player A and C are GBA</li>
+                    <li>AFK bodies around UNID'd bodies and is the only one(s) standing and the UNID'ds are ID'd as innos - the AFK(s) are GBA</li>
+                </ul>
+            </div>
+            
+            <!-- Community Rules -->
+            <div class="community-rules">
+                <h3>Community Rules</h3>
+                <div class="highlight">DO NOT BRING UP POLITICAL, RELGIOUS, OR CONTROVERSIAL TOPICS IN ANY FORM OR WAY</div>
+                <ul>
+                    <li>Do not disrespect other players</li>
+                    <li>Trash talk is allowed, however if they ask you to stop, please stop or it will be considered harassment.</li>
+                    <li>Hatespeech/derogatory slurs or phrases are not allowed</li>
+                    <li>Do not excessively micspam or chatspam</li>
+                    <li>English only server, please use it predominantly.</li>
+                    <li>Do not troll/group troll</li>
+                    <li>Do not spam admin chat</li>
+                    <li>Do not try to loophole or bend any rules</li>
+                    <li>Do not use any explicit sprays (Porn/Gore/Beastiality)</li>
+                    <li>Do not have abusive names</li>
+                    <li>Do not attempt Ban Evasion</li>
+                    <li>Do not avoid punishment</li>
+                    <li>Punishments can stack and lead to longer bans</li>
+                    <li>Toxic Gameplay is not allowed</li>
+                    <li>Do not advertise other servers</li>
+                    <li>Out Of Game Trading (OOGT) Selling points or items for real money, objects, or non-server content is punishable, and will result in a permanent ban.</li>
+                    <li>Alting/Account Sharing: You will be held accountable for any/every rule that is broken on your account/computer even if you're not the one that broke the rule.</li>
+                    <li>Traitor Baiting is not allowed</li>
+                    <li>Do not impersonate staff/backseat staff</li>
+                </ul>
+            </div>
+            
+            <!-- Map Specific Information -->
+            <div class="map-specific">
+                <h3>MAP SPECIFIC INFORMATION</h3>
+                <ul>
+                    <li><strong>MinecraftCity_Dark</strong> - T ROOMS CAN BE ACCESSED BY INNOS/DETS</li>
+                    <li>Hiding/ridding Gold Block (KOS) - Minecraft B5</li>
+                    <li>Hiding/ridding Diamond Blocks (High Sus) - Minecraft B5</li>
+                </ul>
+                
+                <h4>TRAITOROUS ITEMS</h4>
+                <ul>
+                    <li>Creeper head - MC Community Pool</li>
+                    <li>Turtles - Community Pool CSS</li>
+                    <li>Charged Axe - Rooftops</li>
+                    <li>TNT blocks + Activated Diamond Sword - Jondome</li>
+                    <li>LifeRoof - Penis + adding props into the pool</li>
+                    <li>Pencil - Bikini Bottom</li>
+                </ul>
+            </div>
+            
+            <!-- Extended Toxic Gameplay -->
+            <div class="traitorous-acts">
+                <h3>EXTENDED 9. Toxic Gameplay is not allowed</h3>
+                <ul>
+                    <li>Killing people within the rights of the rules, but using it in a way to create problems, toxicity or karma loss/slays.</li>
+                    <li>Killing a proven inno w/ a T weapon to take it</li>
+                    <li>Planting UNID'd bodies near players or AFKs to kill them</li>
+                    <li>Killing an inno who killed a T and ID'd the body</li>
+                    <li>Killing an inno whom you witnessed get attacked by a T, kill the T, then you killing the inno</li>
+                    <li>Jumping into crossfire and reporting one of the players for killing you.</li>
+                    <li>Running at people with a grenade out/magneto stick or anything that makes it seem you have a knife to bait a kill and report them</li>
+                </ul>
+            </div>
+            
+            <!-- Detective Rules -->
+            <div class="detective-rules">
+                <h3>Detective Rules</h3>
+                <ul>
+                    <li>You may not force people to test; This means pulling a player into testers or into T doors that automatically open using a grapple hook or threatening to kill/KOS them without consent.</li>
+                    <li>Cannot force players to follow "detective's orders"</li>
+                    <li>You can use a DNA scanner to prove who killed a Traitor</li>
+                    <li>Can prove players via test/dna from T body in CHAT ONLY</li>
+                    <li>Camping is not allowed (If it's causing a delay of the round)</li>
+                    <li>May not RDM or RDM fellow Detectives</li>
+                </ul>
+            </div>
+            
+            <!-- Traitor Rules -->
+            <div class="traitor-rules">
+                <h3>Traitor Rules</h3>
+                <ul>
+                    <li>Camping is not allowed (If it's causing a delay of the round)</li>
+                    <li>You may False KOS people</li>
+                    <li>Must give a 5 sec warn your T buddies when using map traps/using traitor weapons</li>
+                    <li>Cannot RDM fellow T–Buddies</li>
+                    <li>Cannot call out fellow T–Buddies/KOS their T–Buddies at all</li>
+                </ul>
+                <div class="exemption">Any T weapons that show an icon or visible sign to warn fellow traitors are exempt</div>
+            </div>
+            
+            <!-- Note -->
+            <div class="note">
+                You can "force" test players who consent, the consent MUST BE IN CHAT and not thru voice. (Known friends of player force testing can be excluded)
+            </div>
+        </div>
+    </div>
 </body>
 </html>
