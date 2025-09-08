@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAMEPLAY RULES</title>
+    <title>SWAG CITY TTT</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -39,7 +39,8 @@
         }
         
         .content {
-            padding: 40px;
+            padding: 10%;
+            padding-bottom: 60%;
         }
         
         .section {
@@ -250,7 +251,7 @@
             background: linear-gradient(135deg, #4CAF50, #45a049);
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 15px 30%;
             font-size: 1.2em;
             font-weight: bold;
             border-radius: 25px;
@@ -294,6 +295,125 @@
         .toggle-icon.rotated {
             transform: rotate(180deg);
         }
+        
+        .basic-rules {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .basic-rules-header {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+        
+        .basic-rules-header:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .basic-rules-content {
+            display: none;
+            padding: 20px;
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        .basic-rules-content.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { 
+                opacity: 0; 
+                max-height: 0; 
+                padding-top: 0; 
+                padding-bottom: 0; 
+            }
+            to { 
+                opacity: 1; 
+                max-height: 1000px; 
+                padding-top: 20px; 
+                padding-bottom: 20px; 
+            }
+        }
+        
+        .basic-rules-icon {
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+        }
+        
+        .basic-rules-icon.rotated {
+            transform: rotate(180deg);
+        }
+        
+        .basic-rules ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .basic-rules li {
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .golden-rule {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid #f39c12;
+        }
+        
+        .discord-button {
+            background: linear-gradient(135deg, #7289da, #5865f2);
+            color: white;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .discord-button:hover {
+            background-color: rgba(255,255,255,0.1);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .discord-button:active {
+            transform: translateY(0);
+        }
+        
+        .discord-button-content {
+            padding: 15px 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .discord-icon {
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
@@ -303,12 +423,47 @@
         </div>
         
         <div class="content">
-            <button class="toggle-button" onclick="toggleRules()">
-                Click to View Rules
-                <span class="toggle-icon">▼</span>
-            </button>
+            <!-- Basic Rules Dropdown -->
+            <div class="basic-rules">
+                <div class="basic-rules-header" onclick="toggleBasicRules()">
+                    <span>⚡ TTT Rules TL;DR</span>
+                    <span class="basic-rules-icon">▼</span>
+                </div>
+                <div class="basic-rules-content" id="basicRulesContent">
+                    <ul>
+                        <li><strong>No RDM</strong> – Only kill for valid T acts (DNA, UNID'd body, proven T weapon, etc.).</li>
+                        <li><strong>No Ghosting</strong> – Don't give round info while dead.</li>
+                        <li><strong>Readable Names</strong> – English only, no confusing names.</li>
+                        <li><strong>No False/Spam Reports</strong> – Report properly.</li>
+                        <li><strong>No Prop Minge</strong> – Don't block, surf, or prop kill.</li>
+                        <li><strong>No Delaying</strong> – Don't camp or stall rounds.</li>
+                        <li><strong>Valid KOS Only</strong> – Must be based on T acts, not location/skins/pets.</li>
+                        <li><strong>No Hacking/Exploits</strong> – Self-explanatory.</li>
+                        <li><strong>No Toxic Gameplay</strong> – Don't abuse rules to troll/ruin rounds.</li>
+                        <li><strong>No Teaming/Metagaming</strong> – Don't help or call out Ts/innos unfairly.</li>
+                        <li><strong>Crossfire</strong> – Accidents happen; staff decides.</li>
+                        <li><strong>Warn Ts</strong> – Give 5s warning before traps/weapons.</li>
+                        <li><strong>UNID'd Bodies</strong> – Ignoring = KOS.</li>
+                        <li><strong>High Sus</strong> = Only KOS in Overtime.</li>
+                        <li><strong>GBA</strong> – Ignoring T acts makes you guilty.</li>
+                        <li><strong>Community Rules</strong> – No harassment, hate speech, spam, trolling, politics, alt abuse, explicit sprays, or advertising.</li>
+                        <li><strong>Detectives</strong> – No force testing/orders. Use chat to prove DNA/tests.</li>
+                        <li><strong>Traitors</strong> – Don't RDM or call out Ts. Warn teammates before traps.</li>
+                        <li><strong>Map Rules</strong> – Some maps/items have special KOS/High Sus rules.</li>
+                    </ul>
+                    <div class="golden-rule">
+                        👉 Golden Rule: Use common sense, don't troll, and have fun. Staff has final say.
+                    </div>
+                </div>
+            </div>
             
-            <div class="rules-content" id="rulesContent">
+            <!-- Full Rules Dropdown -->
+            <div class="basic-rules" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
+                <div class="basic-rules-header" onclick="toggleRules()">
+                    <span>📋 Full Detailed Rules</span>
+                    <span class="basic-rules-icon">▼</span>
+                </div>
+                <div class="basic-rules-content" id="rulesContent">
             <!-- Main Gameplay Rules -->
             <div class="section">
                 <h2>Main Gameplay Rules</h2>
@@ -688,22 +843,47 @@
             <div class="note">
                 You can "force" test players who consent, the consent MUST BE IN CHAT and not thru voice. (Known friends of player force testing can be excluded)
             </div>
+                </div>
             </div>
+            
+            <!-- Discord Join Button -->
+            <a href="https://discord.gg/RXDHXT3Kmr" target="_blank" class="discord-button">
+                <div class="discord-button-content">
+                    <span>💬 Join Our Discord Server</span>
+                    <span>🔗</span>
+                </div>
+            </a>
         </div>
     </div>
     
     <script>
-        function toggleRules() {
-            const content = document.getElementById('rulesContent');
-            const button = document.querySelector('.toggle-button');
-            const icon = document.querySelector('.toggle-icon');
+        function toggleBasicRules() {
+            const content = document.getElementById('basicRulesContent');
+            const icon = document.querySelector('.basic-rules-icon');
             
             if (content.classList.contains('show')) {
                 content.classList.remove('show');
-                button.innerHTML = 'Click to View Rules <span class="toggle-icon">▼</span>';
+                icon.classList.remove('rotated');
+                icon.textContent = '▼';
             } else {
                 content.classList.add('show');
-                button.innerHTML = 'Click to Hide Rules <span class="toggle-icon rotated">▲</span>';
+                icon.classList.add('rotated');
+                icon.textContent = '▲';
+            }
+        }
+        
+        function toggleRules() {
+            const content = document.getElementById('rulesContent');
+            const icon = document.querySelector('.basic-rules-icon');
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                icon.classList.remove('rotated');
+                icon.textContent = '▼';
+            } else {
+                content.classList.add('show');
+                icon.classList.add('rotated');
+                icon.textContent = '▲';
             }
         }
     </script>
